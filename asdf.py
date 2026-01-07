@@ -12,7 +12,14 @@ def asdf_pattern(length=4):
     
     Returns:
         str: The asdf pattern repeated
+    
+    Raises:
+        ValueError: If length is negative or not an integer
     """
+    if not isinstance(length, int):
+        raise ValueError("Length must be an integer")
+    if length < 0:
+        raise ValueError("Length must be non-negative")
     return "asdf" * length
 
 

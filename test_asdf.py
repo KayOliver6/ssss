@@ -19,6 +19,15 @@ class TestAsdfUtility(unittest.TestCase):
         self.assertEqual(asdf_pattern(2), "asdfasdf")
         self.assertEqual(asdf_pattern(1), "asdf")
     
+    def test_asdf_pattern_validation(self):
+        """Test input validation for pattern generation."""
+        with self.assertRaises(ValueError):
+            asdf_pattern(-1)
+        with self.assertRaises(ValueError):
+            asdf_pattern("invalid")
+        with self.assertRaises(ValueError):
+            asdf_pattern(3.14)
+    
     def test_asdf_reverse(self):
         """Test reverse pattern."""
         self.assertEqual(asdf_reverse(), "fdsa")
